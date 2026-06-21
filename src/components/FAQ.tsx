@@ -29,7 +29,7 @@ export default function FAQ() {
     },
     { 
       question: "What do my donations go towards?", 
-      answer: "Mostly coffee and snacks! ☕ Building and maintaining high-quality open-source tools takes a lot of time and late-night coding sessions. Your donations help keep me fueled and motivated to keep building cool tools for the Linux and desktop community." 
+      answer: "Mostly coffee and snacks! ☕ If you enjoy using PaperCache and find it valuable, your donations are simply a great way to show your support and keep me fueled. Please note that donations are just a tip jar to say thanks, and do not guarantee any future features or products." 
     },
     { 
       question: "Do I get extra features if I donate?", 
