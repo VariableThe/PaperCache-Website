@@ -250,10 +250,49 @@ button {
   font-weight: 700;
 }
 
+.philosophy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 48px;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.quote-mark {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 14rem;
+  color: var(--accent-glow);
+  opacity: 0.08;
+  font-family: Georgia, serif;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+.philosophy-content {
+  position: relative;
+  z-index: 1;
+}
+
 .philosophy-content p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.8;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.philosophy-content p:last-child {
+  margin-bottom: 0;
+}
+
+.highlight-text {
+  font-weight: 600;
+  color: var(--accent-glow);
 }
 
 /* --- FAQ --- */
