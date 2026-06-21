@@ -229,6 +229,12 @@ button {
   text-align: center;
 }
 
+.section-title {
+  margin-bottom: 32px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 .philosophy-content p {
   font-size: 1.1rem;
   line-height: 1.8;
