@@ -16,19 +16,13 @@ export default function Screenshots() {
       ) : (
         <div className="screenshots-scroll-strip fade-in-section is-visible">
           <div className="screenshot-wrapper">
-            <img src="/editor-formatting.png" alt="Editor Formatting" className="screenshot-img" />
+            <img src="/screenshot-1.png" alt="Editor and Formatting" className="screenshot-img" />
           </div>
           <div className="screenshot-wrapper">
-            <img src="/ai-demo.png" alt="Inline AI" className="screenshot-img" />
+            <img src="/screenshot-2.png" alt="Tasks and Math" className="screenshot-img" />
           </div>
           <div className="screenshot-wrapper">
-            <img src="/knowledge-management.png" alt="Knowledge Management" className="screenshot-img" />
-          </div>
-          <div className="screenshot-wrapper">
-            <img src="/search.png" alt="Search" className="screenshot-img" />
-          </div>
-          <div className="screenshot-wrapper">
-            <img src="/graph-view.png" alt="Graph View" className="screenshot-img" />
+            <img src="/screenshot-3.png" alt="Knowledge Management and AI" className="screenshot-img" />
           </div>
         </div>
       )}
