@@ -6,7 +6,7 @@ export default function Screenshots() {
   const [isRevealed, setIsRevealed] = useState(false);
 
   return (
-    <section className="screenshots-container fade-in-section" ref={ref as any}>
+    <section className="screenshots-container fade-in-section" ref={ref}>
       {!isRevealed ? (
         <div style={{ display: 'flex', justifyContent: 'center', margin: '40px 0' }}>
           <button className="btn-primary" onClick={() => setIsRevealed(true)}>

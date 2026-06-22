@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-export function useScrollFade() {
-  const domRef = useRef<HTMLDivElement>(null);
+export function useScrollFade<T extends HTMLElement = HTMLElement>() {
+  const domRef = useRef<T>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {

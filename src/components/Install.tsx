@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { useScrollFade } from '../hooks/useScrollFade';
-import { useLatestRelease } from '../hooks/useLatestRelease';
 
 export default function Install() {
   const ref = useScrollFade();
   const [copiedLines, setCopiedLines] = useState<{[key: number]: boolean}>({});
-  const { currentUrl: downloadUrl } = useLatestRelease();
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -16,7 +14,7 @@ export default function Install() {
   };
 
   return (
-    <section className="install-container fade-in-section" ref={ref as any}>
+    <section className="install-container fade-in-section" ref={ref}>
       <div className="terminal-block font-mono">
         <div className="terminal-content">
           <div>brew tap variablethe/tap</div>
@@ -26,7 +24,7 @@ export default function Install() {
           {copiedLines[0] ? "Copied!" : "Copy"}
         </button>
       </div>
-      <a href={downloadUrl} className="link-text install-link">
+      <a href="https://github.com/VariableThe/PaperCache/releases/latest" className="link-text install-link">
         Or download directly from GitHub Releases →
       </a>
     </section>
