@@ -11,6 +11,13 @@ const LinuxSVG = () => <svg width="20" height="20" viewBox="0 0 448 512" fill="c
 export default function Hero() {
   const os = useOS();
   const [showPicker, setShowPicker] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("xattr -cr /Applications/PaperCache.app");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   let downloadText = 'Download';
 
@@ -53,6 +60,27 @@ export default function Hero() {
             </div>
           )}
         </div>
+        {os === 'mac' && (
+          <details className="mac-gatekeeper-warning">
+            <summary>⚠️ Note on macOS Gatekeeper ("App is damaged" error)</summary>
+            <div className="gatekeeper-content">
+              <p>
+                Because PaperCache is an open-source utility and is not code-signed with a paid Apple Developer ID, macOS will apply a quarantine flag to the application upon manual download, throwing a false "damaged app" warning.
+              </p>
+              <p>
+                To fix this, simply open your Terminal and run the following command to strip the quarantine flag:
+              </p>
+              <div className="terminal-block font-mono small-terminal">
+                <div className="terminal-content">
+                  <div>xattr -cr /Applications/PaperCache.app</div>
+                </div>
+                <button className="copy-btn" onClick={handleCopy}>
+                  {copied ? "Copied!" : "Copy"}
+                </button>
+              </div>
+            </div>
+          </details>
+        )}
       </div>
       <div className="hero-right">
         <div className="editor-mock-wrapper">
