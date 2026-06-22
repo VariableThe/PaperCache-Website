@@ -4,7 +4,7 @@ export default function Philosophy() {
   const ref = useScrollFade();
 
   return (
-    <section className="philosophy-container fade-in-section" ref={ref as any}>
+    <section className="philosophy-container fade-in-section" ref={ref}>
       <h2 className="section-title">Our Philosophy</h2>
       <div className="philosophy-card">
         <div className="quote-mark">"</div>

@@ -52,7 +52,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="faq-container fade-in-section" ref={ref as any}>
+    <section className="faq-container fade-in-section" ref={ref}>
       <h2 className="section-title">Frequently Asked Questions</h2>
       <div className="faq-list">
         {faqs.map((faq, index) => (
