@@ -39,7 +39,7 @@ export default function Hero() {
   return (
     <section className="hero-container">
       <div className="hero-left">
-        <h1 className="hero-headline">A scratchpad that thinks.</h1>
+        <h1 className="hero-headline">PaperCache: A Reactive Scratchpad That Thinks.</h1>
         <p className="hero-subline text-muted">
           Summon it with a hotkey. Jot. Dismiss.<br/>
           Reactive math, inline AI, tasks — all in plain markdown.

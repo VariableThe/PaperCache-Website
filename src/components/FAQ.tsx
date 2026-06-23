@@ -51,8 +51,24 @@ export default function FAQ() {
     }
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": typeof faq.answer === "string" ? faq.answer : faq.question
+      }
+    }))
+  };
+
   return (
     <section className="faq-container fade-in-section" ref={ref}>
+      <script type="application/ld+json">
+        {JSON.stringify(faqSchema)}
+      </script>
       <h2 className="section-title">Frequently Asked Questions</h2>
       <div className="faq-list">
         {faqs.map((faq, index) => (
