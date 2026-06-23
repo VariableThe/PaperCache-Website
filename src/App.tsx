@@ -7,6 +7,8 @@ import Philosophy from './components/Philosophy';
 import FAQ from './components/FAQ';
 import Kofi from './components/Kofi';
 import Footer from './components/Footer';
+import Architecture from './components/Architecture';
+import GrievanceForm from './components/GrievanceForm';
 
 function App() {
   return (
@@ -16,9 +18,11 @@ function App() {
         <Hero />
         <Philosophy />
         <Features />
+        <Architecture />
         <Screenshots />
         <Install />
         <FAQ />
+        <GrievanceForm />
         <Kofi />
       </main>
       <Footer />

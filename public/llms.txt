@@ -1,0 +1,18 @@
+# PaperCache
+
+## Overview
+PaperCache is a lightning-fast, computational scratchpad built for developers who need their notes to actually do work. Inspired by AntiNote, but 100% free and open-source.
+
+## Key Features
+- **Global Hotkey Summon**: Summon it with a hotkey anywhere, jot down thoughts, and dismiss.
+- **Reactive Math**: Built-in support for evaluating mathematical expressions directly inside the notes.
+- **Inline AI**: AI capabilities embedded into the markdown experience for context-aware assistance.
+- **Tasks**: Manage tasks effectively within a plain markdown environment.
+- **Zero-Friction**: Spawn exactly where your cursor is, hide markdown syntax for clean reading, and maintain a true zero-idle CPU state to preserve battery life.
+
+## Architecture
+PaperCache was originally built using Electron, but has recently been migrated to Rust and Tauri. This shift was critical for significantly reducing memory footprint, improving cold start times, and creating a native feel across macOS, Windows, and Linux. The performance audit of this migration can be found at: https://github.com/VariableThe/PaperCache/blob/main/PERFORMANCE_AUDIT.md
+
+## Codebase
+The primary repository is hosted at: https://github.com/VariableThe/PaperCache
+It features a web-based UI built with React and Vite, powered by a Tauri/Rust backend.
