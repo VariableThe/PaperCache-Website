@@ -16,13 +16,13 @@ export default function Screenshots() {
       ) : (
         <div className="screenshots-scroll-strip fade-in-section is-visible">
           <div className="screenshot-wrapper">
-            <img src="/screenshot-1.png" alt="Editor and Formatting" className="screenshot-img" />
+            <img src="/screenshot-1.png" alt="PaperCache markdown editor showing formatting and reactive math features on macOS" className="screenshot-img" />
           </div>
           <div className="screenshot-wrapper">
-            <img src="/screenshot-2.png" alt="Tasks and Math" className="screenshot-img" />
+            <img src="/screenshot-2.png" alt="PaperCache task management with due dates and reactive math variable calculation" className="screenshot-img" />
           </div>
           <div className="screenshot-wrapper">
-            <img src="/screenshot-3.png" alt="Knowledge Management and AI" className="screenshot-img" />
+            <img src="/screenshot-3.png" alt="PaperCache inline AI assistant and knowledge graph for developer note-taking" className="screenshot-img" />
           </div>
         </div>
       )}
