@@ -705,6 +705,35 @@ button {
   color: var(--accent-glow);
 }
 
+/* Download Counter */
+.download-counter-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(124,58,237,0.1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.download-counter-btn:hover {
+  background: rgba(124,58,237,0.2);
+  border-color: rgba(124,58,237,0.3);
+  transform: translateY(-1px);
+}
+.dl-divider {
+  width: 1px;
+  height: 14px;
+  background-color: var(--border);
+}
+.dl-count {
+  font-weight: 600;
+  color: var(--accent-glow);
+}
+
 /* Architecture */
 .architecture-container {
   padding: 64px 24px;

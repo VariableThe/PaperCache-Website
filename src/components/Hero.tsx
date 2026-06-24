@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TypingDemo from './TypingDemo';
+import DownloadCounter from './DownloadCounter';
 import { useOS } from '../hooks/useOS';
 import { useLatestRelease } from '../hooks/useLatestRelease';
 
@@ -39,10 +40,10 @@ export default function Hero() {
   return (
     <section className="hero-container">
       <div className="hero-left">
-        <h1 className="hero-headline">PaperCache: A Reactive Scratchpad That Thinks.</h1>
+        <h1 className="hero-headline">PaperCache: A Reactive Knowledge Manager That Thinks.</h1>
         <p className="hero-subline text-muted">
           Summon it with a hotkey. Jot. Dismiss.<br/>
-          Reactive math, inline AI, tasks — all in plain markdown.
+          Reactive math, inline AI, knowledge graphs, tasks — all in plain markdown.
         </p>
         <div className="hero-download-section">
           <a href={currentUrl} className="btn-primary" download>
@@ -59,6 +60,7 @@ export default function Hero() {
               <a href={linuxUrl} download><LinuxSVG /> Linux</a>
             </div>
           )}
+          <DownloadCounter />
         </div>
         {os === 'mac' && (
           <details className="mac-gatekeeper-warning">
