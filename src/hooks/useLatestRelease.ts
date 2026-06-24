@@ -4,6 +4,7 @@ import { useOS } from './useOS';
 interface GithubAsset {
   name: string;
   browser_download_url: string;
+  download_count: number;
 }
 
 export function useLatestRelease() {
@@ -13,6 +14,7 @@ export function useLatestRelease() {
     windowsUrl: 'https://github.com/VariableThe/PaperCache/releases/download/v0.2.9/PaperCache.Setup.0.2.9.exe',
     linuxUrl: 'https://github.com/VariableThe/PaperCache/releases/download/v0.2.9/PaperCache-0.2.9.AppImage'
   });
+  const [totalDownloads, setTotalDownloads] = useState<number | null>(null);
 
   useEffect(() => {
     let isMounted = true;
@@ -35,6 +37,19 @@ export function useLatestRelease() {
         });
       })
       .catch(err => console.error('Failed to fetch latest release', err));
+    
+    fetch('https://api.github.com/repos/VariableThe/PaperCache/releases?per_page=100')
+      .then(res => res.json())
+      .then(data => {
+        if (!isMounted) return;
+        if (!Array.isArray(data)) return;
+        const total = data.reduce((sum: number, release: any) => {
+          if (!release.assets) return sum;
+          return sum + release.assets.reduce((s: number, a: GithubAsset) => s + (a.download_count || 0), 0);
+        }, 0);
+        setTotalDownloads(total);
+      })
+      .catch(err => console.error('Failed to fetch total downloads', err));
       
     return () => { isMounted = false; };
   }, []);
@@ -44,5 +59,5 @@ export function useLatestRelease() {
   else if (os === 'windows') currentUrl = urls.windowsUrl;
   else if (os === 'linux') currentUrl = urls.linuxUrl;
 
-  return { ...urls, currentUrl };
+  return { ...urls, currentUrl, totalDownloads };
 }

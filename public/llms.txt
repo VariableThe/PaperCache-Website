@@ -1,7 +1,7 @@
 # PaperCache
 
 ## Overview
-PaperCache is a lightning-fast, computational scratchpad built for developers who need their notes to actually do work. Inspired by AntiNote, but 100% free and open-source.
+PaperCache is a lightning-fast, knowledge manager built for developers who need their notes to actually do work. Inspired by AntiNote, but 100% free and open-source.
 
 ## Key Features
 - **Global Hotkey Summon**: Summon it with a hotkey anywhere, jot down thoughts, and dismiss.
