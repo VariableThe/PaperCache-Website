@@ -186,6 +186,36 @@ button {
   position: relative;
 }
 
+/* --- Rotating Descriptor Badge --- */
+.descriptor-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #f3e8ff;
+  color: #1f1f2e;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  padding: 0.04em 0.3em;
+  border-radius: 0.1em;
+  white-space: nowrap;
+  vertical-align: baseline;
+  min-width: 3em;
+  justify-content: center;
+  position: relative;
+}
+
+.badge-text {
+  display: inline-block;
+}
+
+.typing-cursor {
+  animation: blink 0.8s step-end infinite;
+  margin-left: 0.05em;
+  font-weight: 400;
+  font-style: normal;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--accent-glow);
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
