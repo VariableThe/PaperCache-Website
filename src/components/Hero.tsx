@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TypingDemo from './TypingDemo';
 import DownloadCounter from './DownloadCounter';
 import { useOS } from '../hooks/useOS';
@@ -37,10 +37,51 @@ export default function Hero() {
 
   const { currentUrl, macUrl, windowsUrl, linuxUrl } = useLatestRelease();
 
+  const words = ["scratchpad", "knowledge manager", "second brain"];
+  const [displayText, setDisplayText] = useState("");
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentWord = words[wordIndex];
+    let timeout: number;
+
+    if (!isDeleting) {
+      if (displayText !== currentWord) {
+        timeout = setTimeout(() => {
+          setDisplayText(currentWord.slice(0, displayText.length + 1));
+        }, 70);
+      } else {
+        timeout = setTimeout(() => setIsDeleting(true), 2500);
+      }
+    } else {
+      if (displayText !== "") {
+        timeout = setTimeout(() => {
+          setDisplayText(displayText.slice(0, -1));
+        }, 40);
+      } else {
+        timeout = setTimeout(() => {
+          setWordIndex((prev) => (prev + 1) % words.length);
+          setIsDeleting(false);
+        }, 500);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, wordIndex]);
+
   return (
     <section className="hero-container">
       <div className="hero-left">
-        <h1 className="hero-headline">PaperCache: A Reactive Knowledge Manager That Thinks.</h1>
+        <h1 className="hero-headline">
+          PaperCache: A Reactive
+          <br />
+          <span className="descriptor-badge">
+            <span className="badge-text">{displayText}<span className="typing-cursor">|</span></span>
+          </span>
+          <br />
+          That Thinks.
+        </h1>
         <p className="hero-subline text-muted">
           Summon it with a hotkey. Jot. Dismiss.<br/>
           Reactive math, inline AI, knowledge graphs, tasks — all in plain markdown.
