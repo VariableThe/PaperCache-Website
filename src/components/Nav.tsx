@@ -4,7 +4,7 @@ import GithubStars from './GithubStars';
 
 export default function Nav() {
   const os = useOS();
-  const { currentUrl: downloadUrl } = useLatestRelease();
+  const { currentUrl: downloadUrl, isDirectDownload } = useLatestRelease();
 
   return (
     <nav className="nav-container">
@@ -15,7 +15,7 @@ export default function Nav() {
         </div>
         <div className="nav-links">
           <GithubStars />
-          <a href={downloadUrl} className="nav-download-btn" style={{ textDecoration: 'none' }} download>
+          <a href={downloadUrl} className="nav-download-btn" style={{ textDecoration: 'none' }} download={isDirectDownload || undefined}>
             Download {os === 'mac' ? 'for macOS' : os === 'windows' ? 'for Windows' : os === 'linux' ? 'for Linux' : ''}
           </a>
         </div>
