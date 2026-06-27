@@ -35,7 +35,7 @@ export default function Hero() {
   else if (os === 'windows') OsIcon = WinSVG;
   else if (os === 'linux') OsIcon = LinuxSVG;
 
-  const { currentUrl, macUrl, windowsUrl, linuxUrl } = useLatestRelease();
+  const { currentUrl, macUrl, windowsUrl, linuxUrl, isDirectDownload } = useLatestRelease();
 
   const words = ["scratchpad", "knowledge manager", "second brain"];
   const [displayText, setDisplayText] = useState("");
@@ -87,7 +87,7 @@ export default function Hero() {
           Reactive math, inline AI, knowledge graphs, tasks — all in plain markdown.
         </p>
         <div className="hero-download-section">
-          <a href={currentUrl} className="btn-primary" download>
+          <a href={currentUrl} className="btn-primary" download={isDirectDownload || undefined}>
             {OsIcon && <OsIcon />}
             {downloadText}
           </a>
@@ -96,9 +96,9 @@ export default function Hero() {
           </button>
           {showPicker && (
             <div className="platform-picker">
-              <a href={macUrl} download><AppleSVG /> macOS</a>
-              <a href={windowsUrl} download><WinSVG /> Windows</a>
-              <a href={linuxUrl} download><LinuxSVG /> Linux</a>
+              <a href={macUrl} download={macUrl !== 'https://github.com/VariableThe/PaperCache/releases/latest' || undefined}><AppleSVG /> macOS</a>
+              <a href={windowsUrl} download={windowsUrl !== 'https://github.com/VariableThe/PaperCache/releases/latest' || undefined}><WinSVG /> Windows</a>
+              <a href={linuxUrl} download={linuxUrl !== 'https://github.com/VariableThe/PaperCache/releases/latest' || undefined}><LinuxSVG /> Linux</a>
             </div>
           )}
           <DownloadCounter />
