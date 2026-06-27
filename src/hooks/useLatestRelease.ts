@@ -10,6 +10,10 @@ interface GithubAsset {
   download_count: number;
 }
 
+interface GithubRelease {
+  assets?: GithubAsset[];
+}
+
 function getCachedUrls(): { macUrl: string; windowsUrl: string; linuxUrl: string } | null {
   try {
     const cached = localStorage.getItem(CACHE_KEY);
@@ -19,14 +23,14 @@ function getCachedUrls(): { macUrl: string; windowsUrl: string; linuxUrl: string
         return parsed;
       }
     }
-  } catch {}
+  } catch { /* ignore localStorage errors */ }
   return null;
 }
 
 function setCachedUrls(urls: { macUrl: string; windowsUrl: string; linuxUrl: string }) {
   try {
     localStorage.setItem(CACHE_KEY, JSON.stringify(urls));
-  } catch {}
+  } catch { /* ignore localStorage errors */ }
 }
 
 export function useLatestRelease() {
@@ -67,7 +71,7 @@ export function useLatestRelease() {
       .then(data => {
         if (!isMounted) return;
         if (!Array.isArray(data)) return;
-        const total = data.reduce((sum: number, release: any) => {
+        const total = data.reduce((sum: number, release: GithubRelease) => {
           if (!release.assets) return sum;
           return sum + release.assets.reduce((s: number, a: GithubAsset) => s + (a.download_count || 0), 0);
         }, 0);
